@@ -16,5 +16,5 @@ for i = 1:length(rnds)
 end % for i
 
 frame.conflicts = sum(frame.slots == 2) ;
-frame.sucess = sum(frame.slots == 1) ;
+frame.success = sum(frame.slots == 1) ;
 frame.empty = sum(frame.slots == 0) ;
