@@ -15,7 +15,7 @@ g(k) = (1 - exp(-1/b(k))) / (b(k)*(1 - (1 + (1/b(k))) * exp(-1/b(k)))) ;
 
 % Main iteration loop
 % ---------------------------------------------------------------------------
-while abs(g(k-1) - g(k)) < e_threshold
+while abs(g(k-1) - g(k)) >= e_threshold
 	k = k + 1 ;
 	b(k) = L / (g(k-1)*frame.conflicts + frame.success) ;
 	g(k) = (1 - exp(-1/b(k))) / (b(k)*(1 - (1 + (1/b(k))) * exp(-1/b(k)))) ;
