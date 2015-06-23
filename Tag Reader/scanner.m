@@ -19,12 +19,13 @@ for i = 1:iter
 	% Variable definition
 	tags.total = 0 ;
 	frame.size = 64 ;
-	frame.slots = zeros(1,frame.size) ;
 	frame.conflicts = 0 ;
 	frame.success = 0 ;
 	frame.empty = frame.size ;
 
 	while tags.total < tags.max
+		frame.slots = zeros(1,frame.size) ;
+		frame.size = 64 ;
 		tags.total = tags.total + tags.step ;
 		tags.unidentified = tags.total ;
 		localstep = tags.total/tags.step ;
