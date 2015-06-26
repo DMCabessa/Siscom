@@ -24,26 +24,27 @@ for i = 1:iter
 	frame.empty = frame.size ;
 
 	while tags.total < tags.max
+		turns = 0 ;
 		frame.slots = zeros(1,frame.size) ;
-		frame.size = 64 ;
 		tags.total = tags.total + tags.step ;
 		tags.unidentified = tags.total ;
 		localstep = tags.total/tags.step ;
 		while tags.unidentified > 0
+			turns = turns + 1 ;
 			frame = rndtags(frame,tags) ;
 			% For printing results
 			% ----------------------------------------------------------------------------------
 			props.slotsConflict(i,localstep) = props.slotsConflict(i,localstep) + frame.conflicts ;
 			props.slotsEmpty(i,localstep) = props.slotsEmpty(i,localstep) + frame.empty ;
 			props.slotsUsed(i,localstep) = props.slotsUsed(i,localstep) + length(frame.slots) ;
-			props.MAE(i,localstep) = props.MAE(i,localstep) + (frame.success/length(frame.slots)) ;
 			% ----------------------------------------------------------------------------------
 			tags.unidentified = tags.unidentified - frame.success ;
 			if tags.unidentified > 0
 				frame = fcn(frame) ;
+				props.MAE(i,localstep) = props.MAE(i,localstep) + abs(tags.unidentified-length(frame.slots)) ;
 			end % if tags
 		end % while tags
-
+		props.MAE(i,localstep) = props.MAE(i,localstep) / turns ;
 	end % while
 end % for i
 % ----------------------------------------------------------------------------------------------
