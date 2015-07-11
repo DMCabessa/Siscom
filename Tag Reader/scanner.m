@@ -9,6 +9,9 @@ elseif isequal(strategy,'SCHOUTE')
 elseif isequal(strategy,'EOM-LEE')
 	props = results.Eom_Lee ;
 	fcn = @eom_lee ;
+elseif isequal(strategy,'CHEN')
+	props = results.Chen ;
+	fcn = @chen ;
 end % if isequal
 
 % Scanner loop
@@ -68,4 +71,7 @@ elseif isequal(strategy,'SCHOUTE')
 elseif isequal(strategy,'EOM-LEE')
 	results.Eom_Lee = props ;
 	postResult.Eom_Lee = postProps ;
+elseif isequal(strategy,'CHEN')
+	results.Chen = props ;
+	postResult.Chen = postProps ;
 end % if isequal

@@ -14,3 +14,8 @@ results.Eom_Lee.slotsUsed = zeros(iter,steps) ;
 results.Eom_Lee.slotsConflict = zeros(iter,steps) ;
 results.Eom_Lee.slotsEmpty = zeros(iter,steps) ;
 results.Eom_Lee.MAE = zeros(iter,steps) ;
+
+results.Chen.slotsUsed = zeros(iter,steps) ;
+results.Chen.slotsConflict = zeros(iter,steps) ;
+results.Chen.slotsEmpty = zeros(iter,steps) ;
+results.Chen.MAE = zeros(iter,steps) ;
